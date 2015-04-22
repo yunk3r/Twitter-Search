@@ -1,0 +1,15 @@
+.button {
+    -fx-font-weight: bold;
+}
+
+.autofill-text {
+	    -fx-skin: "np.com.ngopal.control.AutoFillTextBoxSkin";
+	}
+@font-face {
+    font-family: 'OpenSansEmoji';
+    src: url('OpenSansEmoji.ttf');
+}
+
+.root {
+    -fx-font-family: OpenSansEmoji;
+}

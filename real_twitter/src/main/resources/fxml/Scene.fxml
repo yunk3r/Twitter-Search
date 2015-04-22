@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1"  id="AnchorPane" prefHeight="525" prefWidth="1000"  fx:controller="com.mycompany.mavenproject1.FXMLController">
+    <children>
+        <Button layoutX="10" layoutY="70" text="Search" onAction="#handleButtonAction" fx:id="button" />
+        <Button layoutX="150" layoutY="70" text="Stop" onAction="#handleButtonActionStop" fx:id="stop" />
+         <Label layoutX="10" layoutY="3" text="Select Emoji"/>   
+          <Label layoutX="10" layoutY="35" text="Search Text"/>  
+        <TextField layoutX="100" layoutY="35" fx:id="text"/>  
+        <np.com.ngopal.control.AutoFillTextBox layoutX="100" layoutY="3"  prefWidth="550" fx:id="fill"/>    
+        <TextArea minHeight="400" minWidth="990" wrapText="true" editable="false" focusTraversable="false"   layoutX="10" layoutY="110" fx:id="textArea"/> 
+    </children>
+</AnchorPane>

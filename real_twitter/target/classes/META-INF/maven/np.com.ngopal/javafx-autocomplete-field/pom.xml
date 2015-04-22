@@ -1,0 +1,146 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- Project ID -->
+    <groupId>np.com.ngopal</groupId>
+    <artifactId>javafx-autocomplete-field</artifactId>
+    <version>1.0.0</version>
+    <packaging>jar</packaging>
+
+    <!-- Project General Informations -->
+    <name>javafx-autocomplete-field</name>
+    <url>http://blog.ngopal.com.np</url>
+    <description>
+        JavaFX AutoComplete Field.
+        To know more about the features you can view blog post :
+        http://blog.ngopal.com.np/2011/07/04/autofill-textbox-with-filtermode-in-javafx-2-0-custom-control/ Updated: AutoFill TextBox with FilterMode in Javafx 2.0 (Custom Control)
+    </description>
+    
+    <!-- GPL v3 licence -->
+    <licenses>
+        <license>
+            <name>GNU General Public License (version 3)</name>
+            <url>https://www.gnu.org/licenses/gpl.txt</url>
+        </license>
+    </licenses>
+    
+    <!-- Original developer, and me as publisher -->
+    <developers>
+        <developer>
+            <name>Narayan G. Maharjan</name>
+            <email>me@ngopal.com.np</email>
+            <organization>ngopal.com.np</organization>
+            <organizationUrl>http://blog.ngopal.com.np/</organizationUrl>
+            <roles>
+                <role>Main developer</role>
+            </roles>
+        </developer>
+        <developer>
+            <name>Yoyo POLICHOUZ</name>
+            <email>yoyo@polichouz.net</email>
+            <organization>polichouz.net</organization>
+            <roles>
+                <role>Maven artifact publisher</role>
+            </roles>
+        </developer>
+    </developers>
+    
+    <!-- Distribution repo -->
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
+    
+    <!-- Subversion repo -->
+    <scm>
+        <connection>scm:svn:https://github.com/polichouz/javafx-autocomplete-field</connection>
+        <developerConnection>scm:svn:https://github.com/polichouz/javafx-autocomplete-field</developerConnection>
+        <url>https://github.com/polichouz/javafx-autocomplete-field</url>
+    </scm>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- 1.8 source, for 1.8 target -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <!-- Create the javadoc jar on package phase -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.9.1</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- Create the source jar on package phase -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.3</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- Sign distributable files -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.5</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- OSSRH deploy plugin -->
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.6.5</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <serverId>ossrh</serverId>
+                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
